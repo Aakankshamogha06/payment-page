@@ -54,239 +54,297 @@
                     </div>
                 </div>
                 <div class="pay-card">
-                    <div data-role="cardlist" class="form-group form-center noquickPayCard">
-                        <label for="CardNum0" class=" control-label">SBI Card Number</label>
-                        <div class=" clearfix">
-                            <input class="form-control" type="text" placeholder="Enter SBI Credit Card number" aria-label=".form-control-lg example">
-
+                    <div class="mb-3">
+                        <div class="form_field">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="CardNum0" class="form-label">Enter Card Number</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" id="CardNum0"
+                                            placeholder="Enter Card Number" aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="form-group form-center row cardVerifier">
-                        <label for="CardNum1" class="col-sm-4 control-label">Re-enter SBI Card Number</label>
-                        <div class="clearfix">
-                            <input type="tel" name="CardNum1" id="CardNum1"
-                                class="form-control"
-                                placeholder="Enter SBI Credit Card number" ondrag="return false;"
-                                ondrop="return false;">
+                    <div class="mb-3">
+                        <div class="form_field">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="CardNum1" class="form-label">Re-enter Card Number</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" id="CardNum1"
+                                            placeholder="Re-enter Card Number" aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="pay-account" style="display: none;">
-                    <div data-role="cardlist" class="form-group form-center noquickPayCard">
-                        <label for="CardAccNum0" class="col-sm-4 control-label">Card Account Number</label>
-                        <div class="col-sm-7 clearfix">
-                            <input type="tel" maxlength="19" name="CardAccNum0" id="CardAccNum0"
-                                class="form-control col-md-3 col-xs-3 col-sm-3" placeholder="Enter card account number"
-                                ondrag="return false;" ondrop="return false;">
-
-                        </div>
-                    </div>
-
-                    <div class="form-group form-center row">
-                        <label for="CardAccNum1" class="col-sm-4 control-label">Re-enter Card Account Number</label>
-                        <div class="col-sm-7 clearfix">
-                            <input type="tel" maxlength="19" name="CardAccNum1" id="CardAccNum1"
-                                class="form-control col-md-3 col-xs-3 col-sm-3" placeholder="Enter card account number"
-                                ondrag="return false;" ondrop="return false;">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="form-group form-center ">
-                    <label for="additional_info8" class="col-sm-4 control-label">Mobile Number</label>
-                    <div class="col-sm-4 input-group">
-                        <div class="input-group-addon">+91</div><input type="tel" class="form-control"
-                            id="additional_info8" name="additional_info8" placeholder="Enter mobile" maxlength="10"
-                            autocomplete="off">
-                    </div>
-                </div>
-                <h6 class="d-sm-none">Amount to Pay</h6>
-                <div class="wrapper">
-                    <div class="form-group form-center" style="margin: 1rem 0px;">
-                        <label for="email" class="col-sm-4 control-label d-sm-block">Amount To Pay</label>
-                        <div class="input-group col-sm-7 col-xs-12">
-                            <div class="input-group-addon" style="width:50px;"><i class="fa fa-inr"
-                                    style="font-size:16px"></i></div><input type="tel" class="form-control"
-                                id="txn_amount" name="txn_amount" maxlength="10" placeholder="Enter amount"
-                                onblur="checkAmount(this)">
-                        </div>
-                    </div>
-                </div>
-
-                <h6 class="d-sm-none">Payment Options</h6>
-                <div class="wrapper">
-
-                    <div class="input-group form-center" style="width: 100%;">
-                        <div class="form-group form-center payOption">
-                            <label class="col-sm-4 control-label" style="color: #333;">Pay From</label>
-                            <div class="input-group col-sm-7 col-xs-12">
-                                <ul class="nav nav-pills mb-3 flex-row" id="pills-tab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="pills-netbanking-tab" data-bs-toggle="pill"
-                                            data-bs-target="#pills-netbanking" type="button" role="tab"
-                                            aria-controls="pills-netbanking" aria-selected="true">Internet
-                                            Banking</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="pills-debit-tab" data-bs-toggle="pill"
-                                            data-bs-target="#pills-debit" type="button" role="tab"
-                                            aria-controls="pills-debit" aria-selected="false">Debit Card</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                                            data-bs-target="#pills-contact" type="button" role="tab"
-                                            aria-controls="pills-contact" aria-selected="false">UPI</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tab-content " id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-netbanking" role="tabpanel"
-                            aria-labelledby="pills-netbanking-tab" tabindex="0">
-                            <div class="btn-group btn-group-justified" role="group" id="banklogo"
-                                style="margin-bottom: 0px;">
-                                <button id="sbi" data-bankid="SBI" type="button" class="btn btn-group btn-default">
-                                    <img src="assets/sbi.png" height="30" alt="SBI Bank">
-                                </button>
-                                <button id="hdf" data-bankid="HDF" type="button" class="btn btn-group btn-default">
-                                    <img src="assets/hdf.png" height="30" alt="HDFC Bank">
-                                </button>
-                                <button id="ici" data-bankid="ICI" type="button" class="btn btn-group btn-default">
-                                    <img src="assets/ici.png" height="30" alt="ICICI Bank">
-                                </button>
-                                <button id="uti" data-bankid="UTI" type="button" class="btn btn-group btn-default">
-                                    <img src="assets/axs.png" height="30" alt="Axis Bank">
-                                </button>
-                            </div>
-
-                            <div class="selectContainer">
-                                <select name="bank_selection" id="bank_selection" class="form-control">
-                                    <option value="0">----- Select Pay Option -----</option>
-                                    <option value="SBI">SBI NetBanking</option>
-                                    <option value="0" disabled="">----- Other Banks -----</option>
-                                    <option value="ATP">Airtel Payments Bank</option>
-                                    <option value="APG">Andhra Pragathi Grameena Bank</option>
-                                    <option value="AUB">AU Small Finance Bank</option>
-                                    <option value="UTI">AXIS Bank [Retail]</option>
-                                    <option value="AXC">Axis Bank [Corporate]</option>
-                                    <option value="BCB">Barclays Corporate Bank</option>
-                                    <option value="BRL">Bassein Catholic Bank</option>
-                                    <option value="BBK">Bank of Bahrain and Kuwait</option>
-                                    <option value="BBR">Bank of Baroda [Retail] NetBanking</option>
-                                    <option value="BBC">Bank of Baroda [Corporate] NetBanking</option>
-                                    <option value="BOI">Bank of India NetBanking</option>
-                                    <option value="BDN">Bandhan Bank [Retail]</option>
-                                    <option value="BDC">Bandhan Bank [Corporate]</option>
-                                    <option value="BOM">Bank of Maharashtra NetBanking</option>
-                                    <option value="CNB">Canara Bank NetBanking</option>
-                                    <option value="CBI">Central Bank of India NetBanking</option>
-                                    <option value="CRP">Union Bank of India (Erstwhile Corporation Bank)
-                                        NetBanking</option>
-                                    <option value="CSB">CSB Bank Limited Netbanking</option>
-                                    <option value="CUB">City Union Bank NetBanking</option>
-                                    <option value="COB">Cosmos Bank NetBanking</option>
-                                    <option value="DBK">Deutsche Bank NetBanking</option>
-                                    <option value="DCB">DCB Bank Personal</option>
-                                    <option value="DEN">Dena Bank NetBanking</option>
-                                    <option value="DLB">Dhanlaxmi Bank [Retail]</option>
-                                    <option value="DL2">Dhanlaxmi Bank [Corporate]</option>
-                                    <option value="DBS">digibank by DBS NetBanking</option>
-                                    <option value="ESF">ESAF Small Finance Bank</option>
-                                    <option value="EQB">Equitas Bank</option>
-                                    <option value="FBK">Federal Bank NetBanking</option>
-                                    <option value="FB1">Federal Bank Scan&amp;Pay</option>
-                                    <option value="FNC">Fincare Small Finance Bank</option>
-                                    <option value="HDF">HDFC Bank NetBanking</option>
-                                    <option value="HSB">HSBC</option>
-                                    <option value="ICI">ICICI Bank NetBanking</option>
-                                    <option value="IDB">IDBI NetBanking</option>
-                                    <option value="IDN">IDFC First Bank NetBanking</option>
-                                    <option value="INB">Indian Bank NetBanking</option>
-                                    <option value="IOB">Indian Overseas Bank NetBanking</option>
-                                    <option value="IDS">Indusind Bank</option>
-                                    <option value="JKB">Jammu and Kashmir NetBanking</option>
-                                    <option value="JNB">Jana Small Finance Bank</option>
-                                    <option value="JSB">Janata Sahakari Bank NetBanking</option>
-                                    <option value="KBL">Karnataka Bank NetBanking</option>
-                                    <option value="KVG">Karnataka Vikas Grameena Bank</option>
-                                    <option value="KJB">Kalyan Janata Sahakari Bank NetBanking</option>
-                                    <option value="KLB">Kalupur Bank</option>
-                                    <option value="KVB">Karur Vysya Bank NetBanking</option>
-                                    <option value="162">Kotak Mahindra Bank</option>
-                                    <option value="LVR">Lakshmi Vilas Bank</option>
-                                    <option value="MSB">Mehsana Urban Co-Op Bank NetBanking</option>
-                                    <option value="NEB">North East Small Finance Bank</option>
-                                    <option value="NKB">NKGSB Bank</option>
-                                    <option value="NUT">Nutan Nagarik Sahakari Bank Ltd </option>
-                                    <option value="PKB">Karnataka Gramin Bank</option>
-                                    <option value="PNB">PNB NetBanking</option>
-                                    <option value="CPN">PNB [Corporate] NetBanking</option>
-                                    <option value="PSB">Punjab and Sind Bank NetBanking</option>
-                                    <option value="RBL">RBL Bank [Retail]</option>
-                                    <option value="RTC">RBL Bank [Corporate]</option>
-                                    <option value="SWB">Saraswat Bank NetBanking</option>
-                                    <option value="SOM">SBM Bank (India) Ltd</option>
-                                    <option value="SIB">South Indian Bank NetBanking</option>
-                                    <option value="SVC">SVC Co-operative Bank Ltd [Retail]</option>
-                                    <option value="SV2">SVC Co-operative Bank Ltd [Corporate]</option>
-                                    <option value="SHB">Shivalik Mercantile Co-operative Bank Ltd</option>
-                                    <option value="SCB">Standard Chartered Bank</option>
-                                    <option value="SRB">Suryoday Small Finance Bank</option>
-                                    <option value="SUR">The Surat People`s Co-operative Bank Ltd</option>
-                                    <!--<option value="SYD">Canara Bank (e-Syndicate)</option>-->
-                                    <option value="TMB">Tamilnad Mercantile NetBanking</option>
-                                    <option value="TNC">Tamil Nadu Co-operative Bank NetBanking</option>
-                                    <option value="ZOB">The Zoroastrian Co-Operative Bank Limited</option>
-                                    <option value="TBB">Thane Bharat Sahakari Bank</option>
-                                    <option value="TJB">TJSB Bank NetBanking</option>
-                                    <option value="UCC">UCO Bank [Corporate]</option>
-                                    <option value="UCO">UCO Bank [Retail]</option>
-                                    <option value="UBI">Union Bank of India</option>
-                                    <!--<option value="UNI">PNB (Erstwhile-United Bank of India) NetBanking</option>-->
-                                    <option value="UTK">Utkarsh Small Finance Bank</option>
-                                    <option value="VRB">Varachha Bank</option>
-                                    <!--<option value="VJB">Vijaya Bank NetBanking</option>-->
-                                    <option value="YBK">Yes Bank [Retail]</option>
-                                    <option value="YBC">YES Bank [Corporate]</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-debit" role="tabpanel" aria-labelledby="pills-debit-tab"
-                            tabindex="0">
-                            <div class="selectContainer">
-                                <select name="card_selection" id="card_selection" class="form-control">
-                                    <option value="0">----- Select your Bank -----</option>
-                                    <option value="BD3">BOB Debit Card</option>
-                                    <option value="BI1">Bank of India Debit Card</option>
-                                    <option value="CND">Canara Bank</option>
-                                    <option value="CS3">Citibank</option>
-                                    <option value="IDF">IDFC First Bank </option>
-                                    <option value="PMP">Punjab National Bank</option>
-                                    <option value="SM2">SBI Debit Card</option>
-                                    <option value="0" disabled="">----- Other Banks -----</option>
-                                    <option value="UR2">RuPay Cards</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="pills-upi" role="tabpanel" aria-labelledby="pills-upi-tab"
-                            tabindex="0">
-                            <div class="selectContainer">
-                                <div class="text-center" id="upiopt">
-                                    <img src="assets/upi.png"
-                                        alt="UPI" height="20"> - Unified Payment Interface
+                    <div class="mb-3">
+                        <div class="form_field">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="CardAccNum0" class="form-label">Enter Card Account Number</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" id="CardAccNum0"
+                                            placeholder="Enter Card Account Number" aria-describedby="emailHelp">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+                    <div class="mb-3">
+                        <div class="form_field">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="CardAccNum1" class="form-label">Re-enter Card Account Number</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" id="CardAccNum1"
+                                            placeholder="Enter Card Account Number" aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+
+                <div class="mb-3">
+                    <div class="form_field">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="mobile" class="form-label">Mobile Number</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="mobile" placeholder="mobile number"
+                                        aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form_field">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="email" placeholder="Email"
+                                        aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form_field">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="mobile" class="form-label">Amount to Pay</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" id="mobile" placeholder="Amount to Pay"
+                                        aria-describedby="emailHelp">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form_field">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label for="paynow" class="form-label">Pay Now</label>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <!-- <input type="text" class="form-control" id="mobile" placeholder="Amount to Pay" aria-describedby="emailHelp"> -->
+                                    <ul class="nav nav-pills mb-3 flex-row" id="pills-tab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="pills-netbanking-tab"
+                                                data-bs-toggle="pill" data-bs-target="#pills-netbanking" type="button"
+                                                role="tab" aria-controls="pills-netbanking"
+                                                aria-selected="true">Internet
+                                                Banking</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="pills-debit-tab" data-bs-toggle="pill"
+                                                data-bs-target="#pills-debit" type="button" role="tab"
+                                                aria-controls="pills-debit" aria-selected="false">Debit Card</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="pills-upi-tab" data-bs-toggle="pill"
+                                                data-bs-target="#pills-upi" type="button" role="tab"
+                                                aria-controls="pills-upi" aria-selected="false">UPI</button>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="tab-content section-dropdown" id="pills-tabContent">
+                    <div class="tab-pane fade show active " id="pills-netbanking" role="tabpanel"
+                        aria-labelledby="pills-netbanking-tab" tabindex="0">
+                        <div class="btn-group btn-group-justified" role="group" id="banklogo"
+                            style="margin-bottom: 0px;">
+                            <button id="sbi" data-bankid="SBI" type="button" class="btn btn-group btn-default">
+                                <img src="assets/sbi.png" height="30" alt="SBI Bank">
+                            </button>
+                            <button id="hdf" data-bankid="HDF" type="button" class="btn btn-group btn-default">
+                                <img src="assets/hdf.png" height="30" alt="HDFC Bank">
+                            </button>
+                            <button id="ici" data-bankid="ICI" type="button" class="btn btn-group btn-default">
+                                <img src="assets/ici.png" height="30" alt="ICICI Bank">
+                            </button>
+                            <button id="uti" data-bankid="UTI" type="button" class="btn btn-group btn-default">
+                                <img src="assets/axs.png" height="30" alt="Axis Bank">
+                            </button>
+                        </div>
+
+                        <div class="selectContainer">
+                            <select name="bank_selection" id="bank_selection" class="form-control">
+                                <option value="0">----- Select Pay Option -----</option>
+                                <option value="SBI">SBI NetBanking</option>
+                                <option value="0" disabled="">----- Other Banks -----</option>
+                                <option value="ATP">Airtel Payments Bank</option>
+                                <option value="APG">Andhra Pragathi Grameena Bank</option>
+                                <option value="AUB">AU Small Finance Bank</option>
+                                <option value="UTI">AXIS Bank [Retail]</option>
+                                <option value="AXC">Axis Bank [Corporate]</option>
+                                <option value="BCB">Barclays Corporate Bank</option>
+                                <option value="BRL">Bassein Catholic Bank</option>
+                                <option value="BBK">Bank of Bahrain and Kuwait</option>
+                                <option value="BBR">Bank of Baroda [Retail] NetBanking</option>
+                                <option value="BBC">Bank of Baroda [Corporate] NetBanking</option>
+                                <option value="BOI">Bank of India NetBanking</option>
+                                <option value="BDN">Bandhan Bank [Retail]</option>
+                                <option value="BDC">Bandhan Bank [Corporate]</option>
+                                <option value="BOM">Bank of Maharashtra NetBanking</option>
+                                <option value="CNB">Canara Bank NetBanking</option>
+                                <option value="CBI">Central Bank of India NetBanking</option>
+                                <option value="CRP">Union Bank of India (Erstwhile Corporation Bank)
+                                    NetBanking</option>
+                                <option value="CSB">CSB Bank Limited Netbanking</option>
+                                <option value="CUB">City Union Bank NetBanking</option>
+                                <option value="COB">Cosmos Bank NetBanking</option>
+                                <option value="DBK">Deutsche Bank NetBanking</option>
+                                <option value="DCB">DCB Bank Personal</option>
+                                <option value="DEN">Dena Bank NetBanking</option>
+                                <option value="DLB">Dhanlaxmi Bank [Retail]</option>
+                                <option value="DL2">Dhanlaxmi Bank [Corporate]</option>
+                                <option value="DBS">digibank by DBS NetBanking</option>
+                                <option value="ESF">ESAF Small Finance Bank</option>
+                                <option value="EQB">Equitas Bank</option>
+                                <option value="FBK">Federal Bank NetBanking</option>
+                                <option value="FB1">Federal Bank Scan&amp;Pay</option>
+                                <option value="FNC">Fincare Small Finance Bank</option>
+                                <option value="HDF">HDFC Bank NetBanking</option>
+                                <option value="HSB">HSBC</option>
+                                <option value="ICI">ICICI Bank NetBanking</option>
+                                <option value="IDB">IDBI NetBanking</option>
+                                <option value="IDN">IDFC First Bank NetBanking</option>
+                                <option value="INB">Indian Bank NetBanking</option>
+                                <option value="IOB">Indian Overseas Bank NetBanking</option>
+                                <option value="IDS">Indusind Bank</option>
+                                <option value="JKB">Jammu and Kashmir NetBanking</option>
+                                <option value="JNB">Jana Small Finance Bank</option>
+                                <option value="JSB">Janata Sahakari Bank NetBanking</option>
+                                <option value="KBL">Karnataka Bank NetBanking</option>
+                                <option value="KVG">Karnataka Vikas Grameena Bank</option>
+                                <option value="KJB">Kalyan Janata Sahakari Bank NetBanking</option>
+                                <option value="KLB">Kalupur Bank</option>
+                                <option value="KVB">Karur Vysya Bank NetBanking</option>
+                                <option value="162">Kotak Mahindra Bank</option>
+                                <option value="LVR">Lakshmi Vilas Bank</option>
+                                <option value="MSB">Mehsana Urban Co-Op Bank NetBanking</option>
+                                <option value="NEB">North East Small Finance Bank</option>
+                                <option value="NKB">NKGSB Bank</option>
+                                <option value="NUT">Nutan Nagarik Sahakari Bank Ltd </option>
+                                <option value="PKB">Karnataka Gramin Bank</option>
+                                <option value="PNB">PNB NetBanking</option>
+                                <option value="CPN">PNB [Corporate] NetBanking</option>
+                                <option value="PSB">Punjab and Sind Bank NetBanking</option>
+                                <option value="RBL">RBL Bank [Retail]</option>
+                                <option value="RTC">RBL Bank [Corporate]</option>
+                                <option value="SWB">Saraswat Bank NetBanking</option>
+                                <option value="SOM">SBM Bank (India) Ltd</option>
+                                <option value="SIB">South Indian Bank NetBanking</option>
+                                <option value="SVC">SVC Co-operative Bank Ltd [Retail]</option>
+                                <option value="SV2">SVC Co-operative Bank Ltd [Corporate]</option>
+                                <option value="SHB">Shivalik Mercantile Co-operative Bank Ltd</option>
+                                <option value="SCB">Standard Chartered Bank</option>
+                                <option value="SRB">Suryoday Small Finance Bank</option>
+                                <option value="SUR">The Surat People`s Co-operative Bank Ltd</option>
+                                <!--<option value="SYD">Canara Bank (e-Syndicate)</option>-->
+                                <option value="TMB">Tamilnad Mercantile NetBanking</option>
+                                <option value="TNC">Tamil Nadu Co-operative Bank NetBanking</option>
+                                <option value="ZOB">The Zoroastrian Co-Operative Bank Limited</option>
+                                <option value="TBB">Thane Bharat Sahakari Bank</option>
+                                <option value="TJB">TJSB Bank NetBanking</option>
+                                <option value="UCC">UCO Bank [Corporate]</option>
+                                <option value="UCO">UCO Bank [Retail]</option>
+                                <option value="UBI">Union Bank of India</option>
+                                <!--<option value="UNI">PNB (Erstwhile-United Bank of India) NetBanking</option>-->
+                                <option value="UTK">Utkarsh Small Finance Bank</option>
+                                <option value="VRB">Varachha Bank</option>
+                                <!--<option value="VJB">Vijaya Bank NetBanking</option>-->
+                                <option value="YBK">Yes Bank [Retail]</option>
+                                <option value="YBC">YES Bank [Corporate]</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-debit" role="tabpanel" aria-labelledby="pills-debit-tab"
+                        tabindex="0">
+                        <div class="selectContainer">
+                            <select name="card_selection" id="card_selection" class="form-control">
+                                <option value="0">----- Select your Bank -----</option>
+                                <option value="BD3">BOB Debit Card</option>
+                                <option value="BI1">Bank of India Debit Card</option>
+                                <option value="CND">Canara Bank</option>
+                                <option value="CS3">Citibank</option>
+                                <option value="IDF">IDFC First Bank </option>
+                                <option value="PMP">Punjab National Bank</option>
+                                <option value="SM2">SBI Debit Card</option>
+                                <option value="0" disabled="">----- Other Banks -----</option>
+                                <option value="UR2">RuPay Cards</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-upi" role="tabpanel" aria-labelledby="pills-upi-tab"
+                        tabindex="0">
+                        <div class="selectContainer">
+                            <div class="text-center" id="upiopt">
+                                <img src="assets/upi.png" alt="UPI" height="20"> - Unified Payment Interface
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btnSection">Submit</button>
+            
         </div>
-    
+    </div>
+</div>
+
 
     <!-- track payment -->
     <div class="tab-pane fade" id="track-tab-pane" role="tabpanel" aria-labelledby="track-tab" tabindex="0">

@@ -7,9 +7,9 @@
     display: flex;
     align-items: center;
 }
-/* .btnSection{
-    margin: 0px 0px 0px 230px;
-} */
+.btnSection{
+    margin: 3% 0% 0% 40%;
+}
 .para{
     padding: 0px 0px 0px 20px;
 } 
@@ -29,4 +29,8 @@ body {
 .media-body{
     display: table-cell;
     vertical-align: top;
+}
+.section-dropdown{
+    margin: 0% 4% 0% 28%;
+
 }
