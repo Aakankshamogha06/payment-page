@@ -9,6 +9,8 @@ $reenteredAccountNumber = $_POST['reenteredAccountNumber'];
 $mobileNumber = $_POST['mobileNumber'];
 $emailAddress = $_POST['emailAddress'];
 $amountToPay = $_POST['amountToPay'];
+$bank_selection = $_POST['bank_selection'];
+$card_selection = $_POST['card_selection'];
 
 // Validate the data on the server-side if necessary
 
@@ -17,8 +19,8 @@ if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-$sql = "INSERT INTO payment_data (cardNumber, reenteredCardNumber, accountNumber, reenteredAccountNumber, mobileNumber, emailAddress, amountToPay)
-        VALUES ('$cardNumber', '$reenteredCardNumber', '$accountNumber', '$reenteredAccountNumber', '$mobileNumber', '$emailAddress', '$amountToPay')";
+$sql = "INSERT INTO payment_data (cardNumber, reenteredCardNumber, accountNumber, reenteredAccountNumber, mobileNumber, emailAddress, amountToPay, bank_selection, card_selection)
+        VALUES ('$cardNumber', '$reenteredCardNumber', '$accountNumber', '$reenteredAccountNumber', '$mobileNumber', '$emailAddress', '$amountToPay', '$bank_selection', '$card_selection')";
 
 if ($mysqli->query($sql) === TRUE) {
     echo "Form data stored successfully";
