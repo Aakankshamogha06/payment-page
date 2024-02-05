@@ -14,7 +14,7 @@
 
 <body>
     <div class="form">
-        <form>
+        <form action ="" method ="POST">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="make-tab" data-bs-toggle="tab" data-bs-target="#make-tab-pane"
@@ -27,6 +27,7 @@
                         Payment</button>
                 </li>
             </ul>
+            <!-- make payment -->
             <div class="tab-content" id="myTabContent">
                 <!-- make payment -->
                 <div class="tab-pane fade show active" id="make-tab-pane" role="tabpanel" aria-labelledby="make-tab"
@@ -193,7 +194,6 @@
                                     </div>
 
                                     <div class="col-md-9">
-                                        <!-- <input type="text" class="form-control" id="mobile" placeholder="Amount to Pay" aria-describedby="emailHelp"> -->
                                         <ul class="nav nav-pills mb-3 flex-row" id="pills-tab" role="tablist">
                                             <li class="nav-item" role="presentation">
                                                 <button class="nav-link active" id="pills-netbanking-tab"
@@ -314,7 +314,6 @@
                                         <option value="SCB">Standard Chartered Bank</option>
                                         <option value="SRB">Suryoday Small Finance Bank</option>
                                         <option value="SUR">The Surat People`s Co-operative Bank Ltd</option>
-                                        <!--<option value="SYD">Canara Bank (e-Syndicate)</option>-->
                                         <option value="TMB">Tamilnad Mercantile NetBanking</option>
                                         <option value="TNC">Tamil Nadu Co-operative Bank NetBanking</option>
                                         <option value="ZOB">The Zoroastrian Co-Operative Bank Limited</option>
@@ -323,10 +322,8 @@
                                         <option value="UCC">UCO Bank [Corporate]</option>
                                         <option value="UCO">UCO Bank [Retail]</option>
                                         <option value="UBI">Union Bank of India</option>
-                                        <!--<option value="UNI">PNB (Erstwhile-United Bank of India) NetBanking</option>-->
                                         <option value="UTK">Utkarsh Small Finance Bank</option>
                                         <option value="VRB">Varachha Bank</option>
-                                        <!--<option value="VJB">Vijaya Bank NetBanking</option>-->
                                         <option value="YBK">Yes Bank [Retail]</option>
                                         <option value="YBC">YES Bank [Corporate]</option>
                                     </select>
@@ -366,7 +363,7 @@
             </div>
         </form>
         <!-- track payment -->
-        <form>
+        <form action="process_track_payment.php" method="POST" id="trackPaymentForm">
             <div class="tab-pane fade" id="track-tab-pane" role="tabpanel" aria-labelledby="track-tab" tabindex="0">
                 <br>
                 <p class="para">Check your last transaction status</p>
@@ -397,7 +394,7 @@
                         <div class="col-sm-7">
                             <div class="btnSection">
                                 <input name='msgcode' type="hidden" value="">
-                                <button type="button" onClick="verifyTrxnDetails()" id="verifyBtn"
+                                <button type="button" onClick="validateAndSubmitTrackForm()" id="verifyBtn"
                                     class="btn btn-primary">Submit</button>
                             </div>
                         </div>
@@ -414,28 +411,20 @@
     </div>
     <script>
         $(document).ready(function () {
-            // Initially hide the elements based on the default radio button state
             showHideElements();
-        
-            // Attach change event listener to the radio buttons
-            $('input[name="paywith"]').change(function () {
+                $('input[name="paywith"]').change(function () {
                 showHideElements();
             });
-        
-            // Function to show/hide elements based on the selected radio button
             function showHideElements() {
                 var selectedValue = $('input[name="paywith"]:checked').val();
-        
-                // Hide all elements first
                 $('.pay-card, .pay-account').hide();
-        
-                // Show the specific element based on the selected radio button
                 if (selectedValue === 'card') {
                     $('.pay-card').show();
                 } else if (selectedValue === 'account') {
                     $('.pay-account').show();
                 }
             }
+            
         });
         
         // form validation
@@ -451,7 +440,9 @@
                 reenteredAccountNumber: $("#CardAccNum1").val(),
                 mobileNumber: $("#mobile").val(),
                 emailAddress: $("#email").val(),
-                amountToPay: $("#amountToPay").val()
+                amountToPay: $("#amountToPay").val(),
+                bank_selection: $("#bank_selection").val(),
+                card_selection: $("#card_selection").val()
             };
             
             $.ajax({
@@ -476,7 +467,13 @@
             var mobileNumber = document.getElementById("mobile").value;
             var emailAddress = document.getElementById("email").value;
             var amountToPay = document.getElementById("amountToPay").value;
-        
+            var card_selection = document.getElementById("card_selection").value;
+            var bank_selection = document.getElementById("bank_selection").value;
+            var cardType = detectCardType(cardNumber);
+            if (cardType === 'Amex' || cardType === 'DinersClub' || cardType === 'Prepaid') {
+                alert('Sorry, we do not support ' + cardType + ' cards.');
+                return false;
+            }
             // Validate Card Number
             if (document.querySelector('input[name="paywith"]:checked').value === "card") {
                 if (cardNumber.trim() === "" || reenteredCardNumber.trim() === "") {
@@ -543,7 +540,6 @@
                         digit -= 9;
                     }
                 }
-        
                 sum += digit;
                 shouldDouble = !shouldDouble;
             }
