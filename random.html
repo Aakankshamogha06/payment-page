@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Random Number Generator</h1>
+        <button id="generateBtn">Generate 16-Digit Number</button>
+        <p id="randomNumberDisplay">Click the button to generate a 16-digit random number.</p>
+    </div>
+
+    <script>
+       document.getElementById("generateBtn").addEventListener("click", function() {
+    var randomNumber = generateRandom16DigitNumber();
+    document.getElementById("randomNumberDisplay").innerText = "Random 16-Digit Number: " + randomNumber;
+});
+
+function generateRandom16DigitNumber() {
+    var min = Math.pow(10, 15);
+    var max = Math.pow(10, 16) - 1;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+    </script>
+</body>
+</html>
